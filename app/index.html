@@ -30,9 +30,9 @@
         <div class="navbar-inner">
           <a class="brand" href="#/"><i class="icon-cloud"></i></a>
           <ul class="nav">
-            <li><a href="#/topics">学专题</a></li>
-            <li><a href="#/practices">练专项</a></li>
-            <li><a href="#/quizzes">测真题</a></li>
+            <li ui-route="/topics" ng-class="{active: $uiRoute}"><a href="#/topics">学专题</a></li>
+            <li ui-route="/practices" ng-class="{active: $uiRoute}"><a href="#/practices">练专项</a></li>
+            <li ui-route="/quizzes" ng-class="{active: $uiRoute}"><a href="#/quizzes">测真题</a></li>
           </ul>
         </div>
       </div>
@@ -44,8 +44,12 @@
     <script src="/components/angular-resource/angular-resource.js"></script>
     <script src="/components/angular-cookies/angular-cookies.js"></script>
     <script src="/components/angular-sanitize/angular-sanitize.js"></script>
+
+    <script src="/scripts/vendor/angular-ui-utils.js"></script>
+
     <script src="/components/lodash/lodash.js"></script>
     <script src="/components/restangular/dist/restangular.js"></script>
+
     <script src="/components/sugar/release/sugar-full.development.js"></script>
 
     <!-- build:js scripts/scripts.js -->

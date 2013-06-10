@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('chalkApp', ['restangular'])
+angular.module('chalkApp', ['restangular', 'ui.utils'])
   .config (RestangularProvider, $routeProvider) ->
     RestangularProvider.setBaseUrl('/api/v1')
 
