@@ -2,10 +2,10 @@
 
 app = angular.module('chalkApp')
 
-app.controller 'TopicsIndexCtrl', ($scope, Restangular) ->
+app.controller 'TopicsIndexCtrl', ($scope) ->
   watching = true
 
-  _save = _.debounce dpd.practices.put, 300
+  _save = dpd.practices.put.debounce(300)
   $scope.save = (practice) ->
     watching = false
     _save practice, -> watching = true
