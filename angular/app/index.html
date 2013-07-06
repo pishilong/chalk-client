@@ -9,35 +9,18 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="/styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="chalkApp">
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
-
     <!--[if lt IE 9]>
       <script src="/components/es5-shim/es5-shim.js"></script>
       <script src="/components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
     <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a class="brand" href="#/"><i class="icon-cloud"></i></a>
-          <ul class="nav">
-            <li ui-route="/topics" ng-class="{active: $uiRoute}"><a href="#/topics">学专题</a></li>
-            <li ui-route="/practices" ng-class="{active: $uiRoute}"><a href="#/practices">练专项</a></li>
-            <li ui-route="/quizzes" ng-class="{active: $uiRoute}"><a href="#/quizzes">测真题</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div ng-view></div>
+      <div ui-view></div>
     </div>
 
     <script src="/components/angular/angular.js"></script>
