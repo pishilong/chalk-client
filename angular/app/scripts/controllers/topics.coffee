@@ -2,6 +2,6 @@
 
 app = angular.module('chalkApp')
 
-app.controller 'TopicsIndexCtrl', ($scope) ->
+app.controller 'TopicsIndexCtrl', ($scope, Restangular) ->
 
 app.controller 'TopicsShowCtrl', ($scope) ->
