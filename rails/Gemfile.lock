@@ -34,6 +34,8 @@ GEM
     attribute_normalizer (1.1.0)
     awesome_print (1.1.0)
     builder (3.0.4)
+    childprocess (0.3.9)
+      ffi (~> 1.0, >= 1.0.11)
     code_analyzer (0.3.2)
       sexp_processor
     coderay (1.0.9)
@@ -71,6 +73,10 @@ GEM
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
+    guard-spork (1.5.1)
+      childprocess (>= 0.2.3)
+      guard (>= 1.1)
+      spork (>= 0.8.4)
     hike (1.2.3)
     i18n (0.6.4)
     journey (1.0.4)
@@ -172,6 +178,10 @@ GEM
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
     slop (3.4.5)
+    spork (1.0.0rc3)
+    spork-rails (3.2.1)
+      rails (>= 3.0.0, < 3.3.0)
+      spork (>= 1.0rc0)
     spreadsheet (0.8.5)
       ruby-ole (>= 1.0)
     sprockets (2.2.2)
@@ -217,6 +227,7 @@ DEPENDENCIES
   groupdate
   guard
   guard-rspec
+  guard-spork
   jquery-rails
   kaminari (~> 0.14.1)
   mysql2
@@ -230,6 +241,7 @@ DEPENDENCIES
   sextant
   shoulda-matchers
   simplecov
+  spork-rails
   spreadsheet
   sqlite3
   strong_parameters (~> 0.2.0)
