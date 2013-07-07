@@ -1,8 +1,10 @@
 'use strict'
 
 angular.module('chalkApp', ['ui.utils', 'ui.state', 'restangular'])
-  .config ($stateProvider, RestangularProvider) ->
+  .config ($urlRouterProvider, $stateProvider, RestangularProvider) ->
     RestangularProvider.setBaseUrl('/api/v1')
+
+    $urlRouterProvider.otherwise('/')
 
     main = {
       name: 'main'
