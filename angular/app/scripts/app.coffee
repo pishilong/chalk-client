@@ -31,4 +31,17 @@ angular.module('chalkApp', ['ui.utils', 'ui.state', 'restangular'])
       templateUrl: '/views/practices/index.html'
       controller: 'PracticesIndexCtrl'
     }
-    _.map [main, study, topics, practices], (state) -> $stateProvider.state(state)
+    quizzes = {
+      name: "study.quizzes"
+      parent: study
+      url: '/quizzes'
+      templateUrl: '/views/quizzes/index.html'
+      controller: 'QuizzesIndexCtrl'
+    }
+    quizzes_show = {
+      name: "show"
+      url: '/quizzes/:id'
+      templateUrl: '/views/quizzes/show.html'
+      controller: 'QuizzesShowCtrl'
+    }
+    _.map [main, study, topics, practices, quizzes, quizzes_show], (state) -> $stateProvider.state(state)
