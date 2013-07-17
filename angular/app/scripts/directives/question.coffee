@@ -29,35 +29,34 @@ angular.module('chalkApp').directive 'questionA', ->
       ), 1000)
   }
 
-angular.module('chalkApp').directive 'section', ->
+angular.module('chalkApp').directive 'sectionSider', ->
   {
     restrict: 'A'
-    scope: {section: '='}
-    template: '<div ng-include="\'section.html\'"></div>'
+    scope: {section: '=sectionSider'}
+    template: '<div class="section-sider" title="section-sider-{{section.id}}" ng-include="\'section_sider.html\'"></div>'
     link: (scope, element, attrs) ->
   }
 
-angular.module('chalkApp').directive 'questionGroup', ->
+angular.module('chalkApp').directive 'section', ->
   {
     restrict: 'A'
-    scope: {section: '=questionGroup', template: '='}
-    template: '<div ng-include="template"></div>'
+    scope: {section: '=', template: '='}
+    template: '<div class="section" title="section" ng-include="template"></div>'
     link: (scope, element, attrs) ->
   }
 
 angular.module('chalkApp').directive 'block', ->
   {
     restrict: 'A'
-    scope: {question: '=block', template: '='}
-    template: '<div ng-include="template"></div>'
+    scope: {question: '=block', template: '=', questionNum: '='}
+    template: '<div class="block" title="block" ng-include="template"></div>'
     link: (scope, element, attrs) ->
-      console.log scope.template
   }
 
 angular.module('chalkApp').directive 'question', ->
   {
     restrict: 'A'
     scope: {question: '=', template: '='}
-    template: '<div ng-include="template"></div>'
+    template: '<div class="question" title="question" ng-include="template"></div>'
     link: (scope, element, attrs) ->
   }
