@@ -15,6 +15,22 @@ app.controller 'QuizzesIndexCtrl', ($scope) ->
   ]
 
 app.controller 'QuizzesShowCtrl', ($scope) ->
+  findInTreeNodes = (nodes, id) ->
+    found = null
+    _.any nodes, (node) ->
+      if node.id is id
+        found = node
+        true
+      else if node.children
+        found = findInTreeNodes(node.children, id)
+        true
+      else
+        false
+    found
+
+  $scope.findTemplate = (type, section) ->
+    $scope.json_resp.render.templates[type][section.id]
+
   material_content = "The ethical judgments of the Supreme Court justices have become an important issue recently. The court cannot (1)  its legitimacy as guardian of the rule of law (2)  justices behave like politicians. Yet, in several instances, justices acted in ways that (3)  the court’s reputation for being independent and impartial.
 Justice Antonin Scalia, for example, appeared at political events. That kind of activity makes it less likely that the court’s decisions will be (4) as impartial judgments. Part of the problem is that the justices are not (5)  by an ethics code. At the very least, the court should make itself (6)  to the code of conduct that (7) to the rest of the federal judiciary.
 This and other similar cases (8) the question of whether there is still a (9) between the court and politics.
@@ -22,15 +38,28 @@ The framers of the Constitution envisioned law (10)  having authority apart from
 Constitutional law is political because it results from choices rooted in fundamental social (15)  like liberty and property. When the court deals with social policy decisions, the law it (16)  is inescapably political-which is why decisions split along ideological lines are so easily (17)  as unjust.
 The justices must (18)  doubts about the court’s legitimacy by making themselves (19)  to the code of conduct. That would make rulings more likely to be seen as separate from politics and, (20) , convincing as law."
   $scope.json_resp = {
+    render: {
+      default_section_id: 1,
+      templates: {
+        section: {
+          1: 'section_template_1'
+        },
+        question: {
+          1: 'block_template_1',
+          2: 'question_template_1',
+          3: 'question_template_1'
+        }
+      }
+    },
     question_container: {
       title: "2012考研英语",
       type: "真题",
       description: "这份试卷只是用来测试demo",
+      duration: "125分钟",
       question_sections: [
         {
           id: 1,
           title: "Section I Use of English",
-          duration: "125分钟",
           description: "Directions:<br/> Read the following text. Choose the best word(s) for each numbered blank and mark [A],[B], [C] or [D] on ANSWER SHEET 1. (10 points)",
           level: 1,
           p_id: null,
@@ -42,7 +71,8 @@ The justices must (18)  doubts about the court’s legitimacy by making themselv
               description: null,
               level: 2,
               p_id: 1,
-              order_idx: 1
+              order_idx: 1,
+              question_num: 1,
               question: {
                 id: 1,
                 level: 1,
@@ -64,6 +94,7 @@ The justices must (18)  doubts about the court’s legitimacy by making themselv
                     options: null,
                     question_content: {
                       id: 1,
+                      question_num: 1,
                       answer_type: "choice",
                       content: null,
                       answer: "B",
@@ -86,6 +117,7 @@ The justices must (18)  doubts about the court’s legitimacy by making themselv
                     options: null,
                     question_content: {
                       id: 2,
+                      question_num: 2,
                       answer_type: "choice",
                       content: null,
                       answer: "A",
@@ -121,3 +153,7 @@ The justices must (18)  doubts about the court’s legitimacy by making themselv
       ]
     }
   }
+
+  $scope.defaultSection = findInTreeNodes(
+    $scope.json_resp.question_container.question_sections,
+    $scope.json_resp.render.default_section_id)

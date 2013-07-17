@@ -28,3 +28,11 @@ angular.module('chalkApp').directive 'question', ->
           scope.$emit('answerChanged', scope.question, answer)
       ), 1000)
   }
+
+angular.module('chalkApp').directive 'section', ->
+  {
+    restrict: 'A'
+    scope: {section: '='}
+    template: '<div ng-include="\'section.html\'"></div>'
+    link: (scope, element, attrs) ->
+  }

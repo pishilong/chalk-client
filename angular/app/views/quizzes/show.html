@@ -1,0 +1,52 @@
+<script type="text/ng-template" id="section.html">
+  <div ng-hide="section.question">
+    <h3>{{section.title}}</h3>
+    <div section="sub_section" ng-repeat="sub_section in section.children"></div>
+  </div>
+
+  <div ng-show="section.question">
+    <a href="#" ng-click="showQuestion(section)">{{section.question_num}}</a>
+  </div>
+</script>
+
+<script type="text/ng-template" id="section_template_1">
+  <h3>{{defaultSection.title}}</h3>
+  <div ng-bind-html-unsafe="defaultSection.description"></div>
+  <hr/>
+  <div ng-repeat="question in defaultSection.children" ng-include="findTemplate('question', question.question)"></div>
+</script>
+
+<script type="text/ng-template" id="block_template_1">
+  <div ng-bind-html-unsafe="question.question.material"></div>
+  <hr/>
+  <div ng-repeat="question in question.question.children" ng-include="findTemplate('question', question)"></div>
+</script>
+
+<script type="text/ng-template" id="question_template_1">
+  <span>{{question.question_content.question_num}}.</span>
+  <div>A) <span ng-bind-html-unsafe="question.question_content.option_a"></span></div>
+  <div>B) <span ng-bind-html-unsafe="question.question_content.option_b"></span></div>
+  <div>C) <span ng-bind-html-unsafe="question.question_content.option_c"></span></div>
+  <div>D) <span ng-bind-html-unsafe="question.question_content.option_d"></span></div>
+  <hr/>
+</script>
+
+<div class="container">
+  <div class="row">
+    <div class="span12" style="text-align:right; padding:10px;">
+      {{json_resp.question_container.title}}
+      <span>测试用时: {{json_resp.question_container.duration}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span2">
+      <div section="section" ng-repeat="section in json_resp.question_container.question_sections">
+      </div>
+    </div>
+
+    <div class="span10">
+      <div question-group="defaultSection" ng-include="findTemplate('section', defaultSection)"></div>
+    </div>
+  </div>
+</div>
