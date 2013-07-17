@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="section.html">
   <div ng-hide="section.question">
-    <h3>{{section.title}}</h3>
+    <h6>{{section.title}}</h6>
     <div section="sub_section" ng-repeat="sub_section in section.children"></div>
   </div>
 
@@ -10,25 +10,30 @@
 </script>
 
 <script type="text/ng-template" id="section_template_1">
-  <h3>{{defaultSection.title}}</h3>
-  <div ng-bind-html-unsafe="defaultSection.description"></div>
-  <hr/>
-  <div ng-repeat="question in defaultSection.children" ng-include="findTemplate('question', question.question)"></div>
+  <h3>{{section.title}}</h3>
+  <div ng-bind-html-unsafe="section.description"></div>
+  <div ng-repeat="section in section.children" ng-include="'section_template_1'"></div>
+  <div ng-show='section.question'>
+    <h5>{{section.question_num}}</h5>
+    <div block='section.question' template="'block_template_1'"></div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="block_template_1">
-  <div ng-bind-html-unsafe="question.question.material"></div>
-  <hr/>
-  <div ng-repeat="question in question.question.children" ng-include="findTemplate('question', question)"></div>
+  <div ng-bind-html-unsafe="question.material"></div>
+  <div ng-repeat="question in question.children" ng-include="'block_template_1'"></div>
+  <div ng-show='question.question_content'>
+    <div question='question.question_content' template="'question_template_1'"></div>
+  </div>
 </script>
 
 <script type="text/ng-template" id="question_template_1">
-  <span>{{question.question_content.question_num}}.</span>
-  <div>A) <span ng-bind-html-unsafe="question.question_content.option_a"></span></div>
-  <div>B) <span ng-bind-html-unsafe="question.question_content.option_b"></span></div>
-  <div>C) <span ng-bind-html-unsafe="question.question_content.option_c"></span></div>
-  <div>D) <span ng-bind-html-unsafe="question.question_content.option_d"></span></div>
-  <hr/>
+  <span>{{question.question_num}}.</span>
+  <span ng-show='question.content'>{{question.content}}.</span>
+  <div>A) <span ng-bind-html-unsafe="question.option_a"></span></div>
+  <div>B) <span ng-bind-html-unsafe="question.option_b"></span></div>
+  <div>C) <span ng-bind-html-unsafe="question.option_c"></span></div>
+  <div>D) <span ng-bind-html-unsafe="question.option_d"></span></div>
 </script>
 
 <div class="container">
@@ -46,7 +51,7 @@
     </div>
 
     <div class="span10">
-      <div question-group="defaultSection" ng-include="findTemplate('section', defaultSection)"></div>
+      <div question-group="defaultSection" template="findTemplate('section', defaultSection)"></div>
     </div>
   </div>
 </div>
