@@ -20,12 +20,12 @@
 
 <script type="text/ng-template" id="section_sider.html">
   <div ng-hide="section.question">
-    <h6>{{section.title}}</h6>
+    <a ng-click="showSection(section)"><h6>{{section.title}}</h6></a>
     <div section-sider="sub_section" ng-repeat="sub_section in section.children"></div>
   </div>
 
   <div ng-show="section.question">
-    <a href="#" ng-click="showQuestion(section)">{{section.question_num}}</a>
+    <a ng-click="showSection(section)">{{section.question_num}}</a>
   </div>
 </script>
 
@@ -34,6 +34,7 @@
     <h3>{{section.title}}</h3>
     <div ng-bind-html-unsafe="section.description"></div>
     <div class="section" title="section-{{section.id}}" ng-repeat="section in section.children" ng-include="'section_template_1'"></div>
+    <button class="btn" ng-click>板块核对</button>
   </div>
 
   <div ng-show='section.question'>
@@ -46,6 +47,7 @@
     <h5>{{questionNum}}</h5>
     <div ng-bind-html-unsafe="question.material"></div>
     <div ng-repeat="question in question.children" ng-include="'block_template_1'"></div>
+    <button class="btn" ng-click>题块核对</button>
   </div>
   <div ng-show='question.question_content'>
     <div question='question.question_content' template="'question_template_1'"></div>
@@ -53,12 +55,19 @@
 </script>
 
 <script type="text/ng-template" id="question_template_1">
-  <span>{{question.question_num}}.</span>
-  <span ng-show='question.content'>{{question.content}}.</span>
-  <div>A) <span ng-bind-html-unsafe="question.option_a"></span></div>
-  <div>B) <span ng-bind-html-unsafe="question.option_b"></span></div>
-  <div>C) <span ng-bind-html-unsafe="question.option_c"></span></div>
-  <div>D) <span ng-bind-html-unsafe="question.option_d"></span></div>
+  <div>
+    <span class="number">{{question.question_num}}.</span>
+    <div ng-bind-html-unsafe="question.content"></div>
+  </div>
+  <div class="choice-options">
+    <div ng-repeat="optIdx in ['a', 'b', 'c', 'd', 'e']" ng-show="question['option_'+optIdx]" class="row">
+      <label class="span1">
+        <input type="radio" name="q_{{question.question_num}}" value="{{optIdx|uppercase}}" ng-model="record.answer" ng-disabled="container.submitted" /> {{optIdx|uppercase}})
+      </label>
+      <div class="" ng-bind-html-unsafe="question['option_'+optIdx]"></div>
+    </div>
+  </div>
+  <button class="btn" ng-click>单题核对</button>
 </script>
 
 <style type="text/css">

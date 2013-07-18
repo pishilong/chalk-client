@@ -42,6 +42,9 @@ angular.module('chalkApp').directive 'sectionSider', ->
     restrict: 'A'
     scope: {section: '=sectionSider'}
     template: '<div class="section-sider" title="section-sider-{{section.id}}" ng-include="\'section_sider.html\'"></div>'
+    controller: ($scope, SectionChange) ->
+      $scope.showSection = (section) ->
+        SectionChange.trigger(section)
     link: (scope, element, attrs) ->
   }
 
@@ -50,6 +53,12 @@ angular.module('chalkApp').directive 'section', ->
     restrict: 'A'
     scope: {section: '=', template: '='}
     template: '<div class="section" title="section" ng-include="template"></div>'
+    controller: ($scope, SectionChange) ->
+      $scope.SectionChange = SectionChange
+      $scope.$watch('SectionChange.flag', ->
+        if SectionChange.value
+          $scope.section = SectionChange.value
+      )
     link: (scope, element, attrs) ->
   }
 
