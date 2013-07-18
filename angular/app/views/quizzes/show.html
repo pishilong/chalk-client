@@ -21,6 +21,7 @@
 <script type="text/ng-template" id="section_sider.html">
   <div ng-hide="section.question">
     <a ng-click="showSection(section)"><h6>{{section.title}}</h6></a>
+    <span>{{section.record.completed_count}}/{{section.record.total_count}}</span>
     <div section-sider="sub_section" ng-repeat="sub_section in section.children"></div>
   </div>
 
@@ -50,24 +51,24 @@
     <button class="btn" ng-click>题块核对</button>
   </div>
   <div ng-show='question.question_content'>
-    <div question='question.question_content' template="'question_template_1'"></div>
+    <div question='question' template="'question_template_1'"></div>
   </div>
 </script>
 
 <script type="text/ng-template" id="question_template_1">
   <div>
-    <span class="number">{{question.question_num}}.</span>
-    <div ng-bind-html-unsafe="question.content"></div>
+    <span class="number">{{question_content.question_num}}.</span>
+    <div ng-bind-html-unsafe="question_content.content"></div>
   </div>
   <div class="choice-options">
-    <div ng-repeat="optIdx in ['a', 'b', 'c', 'd', 'e']" ng-show="question['option_'+optIdx]" class="row">
+    <div ng-repeat="optIdx in ['a', 'b', 'c', 'd', 'e']" ng-show="question_content['option_'+optIdx]" class="row">
       <label class="span1">
-        <input type="radio" name="q_{{question.question_num}}" value="{{optIdx|uppercase}}" ng-model="record.answer" ng-disabled="container.submitted" /> {{optIdx|uppercase}})
+        <input type="radio" name="q_{{question_content.id}}" value="{{optIdx|uppercase}}" ng-model="question.record.answer" ng-disabled="question.record.submitted" /> {{optIdx|uppercase}})
       </label>
-      <div class="" ng-bind-html-unsafe="question['option_'+optIdx]"></div>
+      <div class="" ng-bind-html-unsafe="question_content['option_'+optIdx]"></div>
     </div>
   </div>
-  <button class="btn" ng-click>单题核对</button>
+  <button class="btn" ng-hide="record.submitted" ng-click="submitQuestion(question, record.answer)">单题核对</button>
 </script>
 
 <style type="text/css">

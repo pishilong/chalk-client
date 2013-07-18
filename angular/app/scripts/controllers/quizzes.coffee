@@ -57,7 +57,7 @@ Now the company is suddenly claiming that the 2002 agreement is invalid because 
 The company seems to have concluded that its reputation in Vermont is already so damaged that it has nothing left to lose by going to war with the state. But there should be consequences. Permission to run a nuclear plant is a publictrust. Entergy runs 11 other reactors in the United States, including Pilgrim Nuclear station in Plymouth. Pledging to run Pilgrim safely, the company has applied for federal permission to keep it open for another 20 years. But as the Nuclear Regulatory Commission (NRC) reviews the company’s application, it should keep in mind what promises from Entergy are worth."
   json_resp = {
     render: {
-      default_section_id: 2,
+      default_section_id: 1,
       templates: {
         section: {
           2: 'section_template_1'
@@ -85,6 +85,11 @@ The company seems to have concluded that its reputation in Vermont is already so
           level: 1,
           p_id: null,
           order_idx: 1,
+          record: {
+            status: 'in_progress'
+            completed_count: 1
+            total_count: 2
+          }
           children: [
             {
               id: 3,
@@ -103,6 +108,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                 description: null,
                 material: material_content1,
                 options: null,
+                record: {
+                  status: 'in_progress'
+                  completed_count: 1
+                  total_count: 2
+                }
                 children: [
                   {
                     id: 2,
@@ -113,6 +123,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                     description: null,
                     material: null,
                     options: null,
+                    record: {
+                      submitted: true
+                      answer: 'A'
+                      correct: false
+                    }
                     question_content: {
                       id: 1,
                       question_num: 1,
@@ -136,6 +151,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                     description: null,
                     material: null,
                     options: null,
+                    record: {
+                      submitted: false
+                      answer: "C"
+                      correct: null
+                    }
                     question_content: {
                       id: 2,
                       question_num: 2,
@@ -162,6 +182,11 @@ The company seems to have concluded that its reputation in Vermont is already so
           level: 1,
           p_id: null,
           order_idx: 2,
+          record: {
+            status: 'new'
+            completed_count: 0
+            total_count: 2
+          }
           children: [
             {
               id: 4
@@ -170,6 +195,11 @@ The company seems to have concluded that its reputation in Vermont is already so
               level: 2,
               p_id: 2,
               order_idx: 1,
+              record: {
+                status: 'new'
+                completed_count: 0
+                total_count: 2
+              }
               children: [
                 {
                   id: 5,
@@ -188,6 +218,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                     description: null,
                     material: material_content2 ,
                     options: null,
+                    record: {
+                      status: 'new'
+                      completed_count: 0
+                      total_count: 2
+                    }
                     children: [
                       {
                         id: 6,
@@ -198,6 +233,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                         description: null,
                         material: null,
                         options: null,
+                        record: {
+                          submitted: false
+                          answer: null
+                          correct: null
+                        }
                         question_content: {
                           id: 3,
                           question_num: 1,
@@ -221,6 +261,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                         description: null,
                         material: null,
                         options: null,
+                        record: {
+                          submitted: false
+                          answer: null
+                          correct: null
+                        }
                         question_content: {
                           id: 4,
                           question_num: 2,
@@ -255,6 +300,11 @@ The company seems to have concluded that its reputation in Vermont is already so
                     description: null,
                     material: material_content3,
                     options: null
+                    record: {
+                      status: 'new'
+                      completed_count: 0
+                      total_count: 0
+                    }
                   }
                 }
               ]
@@ -266,6 +316,11 @@ The company seems to have concluded that its reputation in Vermont is already so
               level: 2,
               p_id: 2,
               order_idx: 2
+              record: {
+                status: 'new'
+                completed_count: 0
+                total_count: 0
+              }
             }
           ]
         }

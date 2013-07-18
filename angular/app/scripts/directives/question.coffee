@@ -45,6 +45,10 @@ angular.module('chalkApp').directive 'sectionSider', ->
     controller: ($scope, SectionChange) ->
       $scope.showSection = (section) ->
         SectionChange.trigger(section)
+      $scope.$on 'questionSubmitted', (event, countHash) ->
+        newCount = countHash[$scope.section.id]
+        $scope.section.record.completed_count = newCount if newCount
+
     link: (scope, element, attrs) ->
   }
 
@@ -75,5 +79,14 @@ angular.module('chalkApp').directive 'question', ->
     restrict: 'A'
     scope: {question: '=', template: '='}
     template: '<div class="question" title="question" ng-include="template"></div>'
+    controller: ($scope, $rootScope) ->
+      $scope.submitQuestion = (question, answer) ->
+        console.log 'submit questin', question.id, answer
+        $scope.record.submitted = true
+        $rootScope.$broadcast 'questionSubmitted', {1: 2}
+
     link: (scope, element, attrs) ->
+      if scope.question
+        scope.question_content = scope.question.question_content
+        scope.record = scope.question.record
   }
