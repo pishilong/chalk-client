@@ -29,7 +29,7 @@ app.controller 'QuizzesShowCtrl', ($scope) ->
     found
 
   $scope.findTemplate = (type, section) ->
-    $scope.json_resp.render.templates[type][section.id]
+    $scope.render.templates[type][section.id]
 
   $scope.findSectionTemplate = (section) ->
     if section.question
@@ -55,7 +55,7 @@ The conflict has been surfacing since 2002, when the corporation bought Vermont�
 Either Entergy never really intended to live by those commitments, or it simply didn’t foresee what would happen next. A string of accidents, including the partial collapse of a cooling tower in 2007 and the discovery of an underground pipe system leakage, raised serious questions about both Vermont Yankee’s safety and Entergy’s management– especially after the company made misleading statements about the pipe. Enraged by Entergy’s behavior, the Vermont Senate voted 26 to 4 last year against allowing an extension.
 Now the company is suddenly claiming that the 2002 agreement is invalid because of the 2006 legislation, and that only the federal government has regulatory power over nuclear issues. The legal issues in the case are obscure: whereas the Supreme Court has ruled that states do have some regulatory authority over nuclear power, legal scholars say that Vermont case will offer a precedent-setting test of how far those powers extend. Certainly, there are valid concerns about the patchwork regulations that could result if every statesets its own rules. But had Entergy kept its word, that debate would be beside the point.
 The company seems to have concluded that its reputation in Vermont is already so damaged that it has nothing left to lose by going to war with the state. But there should be consequences. Permission to run a nuclear plant is a publictrust. Entergy runs 11 other reactors in the United States, including Pilgrim Nuclear station in Plymouth. Pledging to run Pilgrim safely, the company has applied for federal permission to keep it open for another 20 years. But as the Nuclear Regulatory Commission (NRC) reviews the company’s application, it should keep in mind what promises from Entergy are worth."
-  $scope.json_resp = {
+  json_resp = {
     render: {
       default_section_id: 2,
       templates: {
@@ -273,6 +273,9 @@ The company seems to have concluded that its reputation in Vermont is already so
     }
   }
 
+  $scope.render = json_resp.render
+  $scope.question_container = json_resp.question_container
+
   $scope.defaultSection = findInTreeNodes(
-    $scope.json_resp.question_container.question_sections,
-    $scope.json_resp.render.default_section_id)
+    $scope.question_container.question_sections,
+    $scope.render.default_section_id)
