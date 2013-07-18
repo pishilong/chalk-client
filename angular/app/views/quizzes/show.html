@@ -1,3 +1,23 @@
+<script type="text/ng-template" id="question_container_1">
+  <div class="row">
+    <div class="span12" style="text-align:right; padding:10px;">
+      {{questionContainer.title}}
+      <span>测试用时: {{questionContainer.duration}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span2">
+      <div ng-repeat="section in questionContainer.question_sections" section-sider="section">
+      </div>
+    </div>
+
+    <div class="span10">
+      <div section="defaultSection" template="'section_template_1'"></div>
+    </div>
+  </div>
+</script>
+
 <script type="text/ng-template" id="section_sider.html">
   <div ng-hide="section.question">
     <h6>{{section.title}}</h6>
@@ -50,21 +70,5 @@
 </style>
 
 <div class="container">
-  <div class="row">
-    <div class="span12" style="text-align:right; padding:10px;">
-      {{question_container.title}}
-      <span>测试用时: {{question_container.duration}}</span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span2">
-      <div ng-repeat="section in question_container.question_sections" section-sider="section">
-      </div>
-    </div>
-
-    <div class="span10">
-      <div section="defaultSection" template="findTemplate('section', defaultSection)"></div>
-    </div>
-  </div>
+  <div yc-question-container="question_container" default-section="defaultSection" template="'question_container_1'"></div>
 </div>

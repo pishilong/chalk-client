@@ -29,6 +29,14 @@ angular.module('chalkApp').directive 'questionA', ->
       ), 1000)
   }
 
+angular.module('chalkApp').directive 'ycQuestionContainer', ->
+  {
+    restrict: 'A'
+    scope: {questionContainer: '=ycQuestionContainer', defaultSection: '=', template: '='}
+    template: '<div class="yc-question-container" title="question-container" ng-include="template"></div>'
+    link: (scope, element, attrs) ->
+  }
+
 angular.module('chalkApp').directive 'sectionSider', ->
   {
     restrict: 'A'
