@@ -27,6 +27,7 @@
 
   <div ng-show="section.question">
     <a ng-click="showSection(section)">{{section.question_num}}</a>
+    <span>{{section.question.record.completed_count}}/{{section.question.record.total_count}}</span>
   </div>
 </script>
 
@@ -35,7 +36,7 @@
     <h3>{{section.title}}</h3>
     <div ng-bind-html-unsafe="section.description"></div>
     <div class="section" title="section-{{section.id}}" ng-repeat="section in section.children" ng-include="'section_template_1'"></div>
-    <button class="btn" ng-click>板块核对</button>
+    <button ng-hide="section.record.status=='completed'" class="btn" ng-click="submitSection(section)">板块核对</button>
   </div>
 
   <div ng-show='section.question'>
@@ -48,7 +49,7 @@
     <h5>{{questionNum}}</h5>
     <div ng-bind-html-unsafe="question.material"></div>
     <div ng-repeat="question in question.children" ng-include="'block_template_1'"></div>
-    <button class="btn" ng-click>题块核对</button>
+    <button ng-hide="question.record.status=='completed'" class="btn" ng-click='submitBlock(question)'>题块核对</button>
   </div>
   <div ng-show='question.question_content'>
     <div question='question' template="'question_template_1'"></div>

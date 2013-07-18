@@ -45,9 +45,6 @@ angular.module('chalkApp').directive 'sectionSider', ->
     controller: ($scope, SectionChange) ->
       $scope.showSection = (section) ->
         SectionChange.trigger(section)
-      $scope.$on 'questionSubmitted', (event, countHash) ->
-        newCount = countHash[$scope.section.id]
-        $scope.section.record.completed_count = newCount if newCount
 
     link: (scope, element, attrs) ->
   }
@@ -58,11 +55,33 @@ angular.module('chalkApp').directive 'section', ->
     scope: {section: '=', template: '='}
     template: '<div class="section" title="section" ng-include="template"></div>'
     controller: ($scope, SectionChange) ->
+
       $scope.SectionChange = SectionChange
+
       $scope.$watch('SectionChange.flag', ->
         if SectionChange.value
           $scope.section = SectionChange.value
       )
+
+      $scope.$on 'blockSubmitted', (event, count) ->
+        $scope.section.record.completed_count += count
+        $scope.section.record.status = 'completed' if ($scope.section.record.completed_count == $scope.section.record.total_count)
+
+      $scope.submitSection = (section) ->
+        console.log 'submit section', section.id
+        $scope.$broadcast 'sectionSubmitted', 'all'
+        $scope.$emit 'sectionSubmitted', ($scope.section.record.total_count - $scope.section.record.completed_count)
+        $scope.section.record.completed_count = $scope.section.record.total_count
+        $scope.section.record.status = 'completed'
+
+      # $scope.$on 'sectionSubmitted', (event, count) ->
+        # if count is 'all'
+          # $scope.section.record.completed_count = $scope.section.record.total_count
+          # $scope.section.record.status = 'completed'
+        # else
+          # $scope.section.record.completed_count += count
+          # $scope.section.record.status = 'completed' if ($scope.section.record.completed_count == $scope.section.record.total_count)
+
     link: (scope, element, attrs) ->
   }
 
@@ -71,6 +90,33 @@ angular.module('chalkApp').directive 'block', ->
     restrict: 'A'
     scope: {question: '=block', template: '=', questionNum: '='}
     template: '<div class="block" title="block" ng-include="template"></div>'
+    controller: ($scope) ->
+
+      $scope.$on 'questionSubmitted', ->
+        $scope.question.record.completed_count += 1
+        $scope.question.record.status = 'completed' if ($scope.question.record.completed_count == $scope.question.record.total_count)
+        $scope.$emit 'blockSubmitted', 1
+
+      $scope.submitBlock = (question) ->
+        console.log 'submit block', question.id
+        $scope.$broadcast 'blockSubmitted', 'all'
+        $scope.$emit 'blockSubmitted', ($scope.question.record.total_count - $scope.question.record.completed_count)
+        $scope.question.record.completed_count = $scope.question.record.total_count
+        $scope.question.record.status = 'completed'
+
+      # $scope.$on 'blockSubmitted', (event, count) ->
+        # if count is 'all'
+          # $scope.question.record.completed_count = $scope.question.record.total_count
+          # $scope.question.record.status = 'completed'
+        # else
+          # $scope.question.record.completed_count += count
+          # $scope.question.record.status = 'completed' if ($scope.question.record.completed_count == $scope.question.record.total_count)
+
+      $scope.$on 'sectionSubmitted', ->
+        $scope.$broadcast 'blockSubmitted'
+        $scope.question.record.completed_count = $scope.question.record.total_count
+        $scope.question.record.status = 'completed'
+
     link: (scope, element, attrs) ->
   }
 
@@ -83,7 +129,10 @@ angular.module('chalkApp').directive 'question', ->
       $scope.submitQuestion = (question, answer) ->
         console.log 'submit questin', question.id, answer
         $scope.record.submitted = true
-        $rootScope.$broadcast 'questionSubmitted', {1: 2}
+        $scope.$emit 'questionSubmitted'
+
+      $scope.$on 'blockSubmitted', ->
+        $scope.record.submitted = true
 
     link: (scope, element, attrs) ->
       if scope.question
