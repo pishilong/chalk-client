@@ -20,13 +20,13 @@
 
 <script type="text/ng-template" id="section_sider.html">
   <div ng-hide="section.question">
-    <a ng-click="showSection(section)"><h6>{{section.title}}</h6></a>
+    <a href="javascript:" ng-click="showSection(section)"><h6>{{section.title}}</h6></a>
     <span>{{section.record.completed_count}}/{{section.record.total_count}}</span>
     <div section-sider="sub_section" ng-repeat="sub_section in section.children"></div>
   </div>
 
   <div ng-show="section.question">
-    <a ng-click="showSection(section)">{{section.question_num}}</a>
+    <a href="javascript:" ng-click="showSection(section)">{{section.question_num}}</a>
     <span>{{section.question.record.completed_count}}/{{section.question.record.total_count}}</span>
   </div>
 </script>
