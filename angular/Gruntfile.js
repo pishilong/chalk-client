@@ -1,5 +1,3 @@
-var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
-
 module.exports = function ( grunt ) {
 
   /**
@@ -28,6 +26,8 @@ module.exports = function ( grunt ) {
    */
   var userConfig = require( './build.config.js' );
 
+  var devConfig = require( './dev.config.js' );
+
   /**
    * This is the configuration object Grunt uses to give each plugin its
    * instructions.
@@ -38,28 +38,6 @@ module.exports = function ( grunt ) {
      * version. It's already there, so we don't repeat ourselves here.
      */
     pkg: grunt.file.readJSON("package.json"),
-
-    connect: {
-      options: {
-        port: 9000,
-        base: 'build',
-        middleware: function (connect, options) {
-          return [
-            proxySnippet,
-            connect.static(options.base)
-          ];
-        }
-      },
-      proxies: [
-        {
-          context: '/api',
-          host: 'localhost',
-          port: 3000,
-          https: false,
-          changeOrigin: false
-        }
-      ]
-    },
 
     /**
      * The banner is the comment that is placed at the top of our compiled
@@ -566,7 +544,7 @@ module.exports = function ( grunt ) {
     }
   };
 
-  grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
+  grunt.initConfig( grunt.util._.extend( taskConfig, userConfig, devConfig ) );
 
   /**
    * In order to make it safe to just compile or copy *only* what was changed,

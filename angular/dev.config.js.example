@@ -1,0 +1,25 @@
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
+module.exports = {
+  connect: {
+    options: {
+      port: 9000,
+      base: 'build',
+      middleware: function (connect, options) {
+        return [
+          proxySnippet,
+          connect.static(options.base)
+        ];
+      }
+    },
+    proxies: [
+      {
+        host: 'alpha.ycttt.tk',
+        port: 80,
+        context: '/api',
+        https: false,
+        changeOrigin: false
+      }
+    ]
+  }
+};
