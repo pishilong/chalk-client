@@ -58,10 +58,6 @@ module.exports = {
       'vendor/restangular/dist/restangular.js'
     ],
     css: [
-      'vendor/font-awesome/css/font-awesome.css'
-    ],
-    fonts: [
-      'vendor/font-awesome/font/*'
     ]
-  },
+  }
 };
