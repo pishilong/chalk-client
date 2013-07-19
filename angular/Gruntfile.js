@@ -1,3 +1,5 @@
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
 module.exports = function ( grunt ) {
 
   /**
@@ -18,6 +20,8 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-connect-proxy');
 
   /**
    * Load in our build configuration file.
@@ -34,6 +38,28 @@ module.exports = function ( grunt ) {
      * version. It's already there, so we don't repeat ourselves here.
      */
     pkg: grunt.file.readJSON("package.json"),
+
+    connect: {
+      options: {
+        port: 9000,
+        base: 'build',
+        middleware: function (connect, options) {
+          return [
+            proxySnippet,
+            connect.static(options.base)
+          ];
+        }
+      },
+      proxies: [
+        {
+          context: '/api',
+          host: 'localhost',
+          port: 3000,
+          https: false,
+          changeOrigin: false
+        }
+      ]
+    },
 
     /**
      * The banner is the comment that is placed at the top of our compiled
@@ -566,6 +592,11 @@ module.exports = function ( grunt ) {
     'copy:build_vendorcss', 'copy:build_vendorfonts', 'index:build',
     'karmaconfig', 'karma:continuous'
   ]);
+
+  /**
+   * The `server` task is to build and serve static files.
+   */
+  grunt.registerTask( 'server', [ 'configureProxies', 'connect', 'watch' ] );
 
   /**
    * The `compile` task gets your app ready for deployment by concatenating and

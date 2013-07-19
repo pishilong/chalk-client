@@ -7,8 +7,10 @@ angular.module('ngChalk', [
   'ui.route'
 ])
 
-.config( ($stateProvider, $urlRouterProvider) ->
-  $urlRouterProvider.otherwise( '/home' )
+.config( ($stateProvider, $urlRouterProvider, RestangularProvider) ->
+  $urlRouterProvider.otherwise('/home')
+
+  RestangularProvider.setBaseUrl('/api/v1')
 )
 
 .run( (titleService) ->

@@ -15,7 +15,8 @@
 
 angular.module('ngChalk.home', [
   'ui.state',
-  'titleService'
+  'titleService',
+  'restangular'
 ])
 
  # Each section or module of the site can also have its own routes. AngularJS
@@ -34,6 +35,9 @@ angular.module('ngChalk.home', [
 )
 
 # And of course we define a controller for our route.
-.controller('HomeCtrl', ($scope, titleService ) ->
+.controller('HomeCtrl', ($scope, titleService, Restangular) ->
   titleService.setTitle('首页')
+
+  Restangular.all('users').getList().then (users) ->
+    console.log users
 )
