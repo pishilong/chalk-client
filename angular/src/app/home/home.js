@@ -14,8 +14,7 @@
  */
 angular.module( 'ngBoilerplate.home', [
   'ui.state',
-  'titleService',
-  'plusOne'
+  'titleService'
 ])
 
 /**
