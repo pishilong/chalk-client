@@ -1,4 +1,4 @@
-/**
+###
  * Each section of the site has its own module. It probably also has
  * submodules, though this boilerplate is too simple to demonstrate it. Within
  * `src/app/home`, however, could exist several additional folders representing
@@ -11,35 +11,29 @@
  *
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
- */
-angular.module( 'ngBoilerplate.home', [
+###
+
+angular.module('ngChalk.home', [
   'ui.state',
   'titleService'
 ])
 
-/**
- * Each section or module of the site can also have its own routes. AngularJS
- * will handle ensuring they are all available at run-time, but splitting it
- * this way makes each module more "self-contained".
- */
-.config(function config( $stateProvider ) {
-  $stateProvider.state( 'home', {
-    url: '/home',
+ # Each section or module of the site can also have its own routes. AngularJS
+ # will handle ensuring they are all available at run-time, but splitting it
+ # this way makes each module more "self-contained".
+.config( ($stateProvider) ->
+  $stateProvider.state('home', {
+    url: '/home'
     views: {
       "main": {
-        controller: 'HomeCtrl',
+        controller: 'HomeCtrl'
         templateUrl: 'home/home.tpl.html'
       }
     }
-  });
-})
+  })
+)
 
-/**
- * And of course we define a controller for our route.
- */
-.controller( 'HomeCtrl', function HomeController( $scope, titleService ) {
-  titleService.setTitle( 'Home' );
-})
-
-;
-
+# And of course we define a controller for our route.
+.controller('HomeCtrl', ($scope, titleService ) ->
+  titleService.setTitle('首页')
+)

@@ -1,16 +1,16 @@
-angular.module( 'titleService', [])
+angular.module('titleService', [])
 
-.factory 'titleService', ( $document ) ->
+.factory 'titleService', ($document) ->
   suffix = title = ""
 
   {
-    setSuffix: ( s ) ->
+    setSuffix: (s) ->
       suffix = s
 
     getSuffix: () ->
       suffix
 
-    setTitle: ( t ) ->
+    setTitle: (t) ->
       if suffix isnt ""
         title = t + suffix
       else
