@@ -1,8 +1,0 @@
-*.sw*
-*~
-build/
-bin/
-node_modules/
-vendor/
-
-/dev.config.js
