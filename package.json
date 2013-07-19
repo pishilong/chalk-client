@@ -1,17 +1,8 @@
 {
-  "author": "Josh David Miller",
-  "name": "ng-boilerplate",
-  "version": "0.3.0",
-  "homepage": "http://bit.ly/ng-boilerplate",
-  "licenses": {
-    "type": "MIT",
-    "url": "https://raw.github.com/joshdmiller/ng-boilerplate/master/LICENSE"
-  },
-  "bugs": "https://github.com/joshdmiller/ng-boilerplate/issues",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:joshdmiller/ng-boilerplate.git"
-  },
+  "author": "yc-dev",
+  "name": "yc",
+  "version": "0.1.0",
+  "homepage": "http://www.ycttt.com",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
