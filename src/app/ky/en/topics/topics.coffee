@@ -1,30 +1,34 @@
-angular.module( 'ngChalk.topics', [
-  'ui.state',
-  'placeholders',
-  'ui.bootstrap',
-  'titleService',
+angular.module( 'ngChalk.ky.en.topics', [
+  'ui.state'
+  'placeholders'
+  'ui.bootstrap'
+  'titleService'
   'ycQuestion'
+  'ngChalk.ky.en.base'
 ])
 
 .config( ($stateProvider) ->
-  $stateProvider.state('topics',
+  $stateProvider.state('ky.en.topics',
     url: '/topics'
     views:
-      'main':
+      'main@':
         controller: 'TopicsIndexCtrl'
-        templateUrl: 'topics/index.tpl.html'
-  ).state('topics.show',
-    url: '/topics/:id'
-    parent: null
+        templateUrl: 'ky/en/topics/index.tpl.html'
+  ).state('ky.en.topics.show',
+    url: '/:id'
     views:
-      'main':
+      'main@':
         controller: 'TopicsShowCtrl'
-        templateUrl: 'topics/show.tpl.html'
+        templateUrl: 'ky/en/topics/show.tpl.html'
   )
 )
 
-.controller('TopicsIndexCtrl', ($scope, titleService) ->
+.controller('TopicsIndexCtrl', ($scope, $stateParams, titleService) ->
+  console.log 'aaaaaa'
   titleService.setTitle('学专题')
+
+  $scope.category = $stateParams.category
+  $scope.subject = $stateParams.subject
 
   $scope.topics = [
     {title: "专题1", id: 1},
@@ -335,5 +339,6 @@ angular.module( 'ngChalk.topics', [
 
   $scope.defaultSection = findInTreeNodes(
     $scope.question_container.question_sections,
-    $scope.render.default_section_id)
+    $scope.render.default_section_id
+  )
 )

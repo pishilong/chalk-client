@@ -1,9 +1,9 @@
 angular.module('ngChalk', [
-  'templates-app',
-  'templates-common',
-  'ngChalk.home',
-  'ngChalk.topics',
-  'ui.state',
+  'templates-app'
+  'templates-common'
+  'ngChalk.home'
+  'ngChalk.ky'
+  'ui.state'
   'ui.route'
 ])
 
