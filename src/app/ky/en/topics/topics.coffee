@@ -24,7 +24,6 @@ angular.module( 'ngChalk.ky.en.topics', [
 )
 
 .controller('TopicsIndexCtrl', ($scope, $stateParams, titleService) ->
-  console.log 'aaaaaa'
   titleService.setTitle('学专题')
 
   $scope.category = $stateParams.category
