@@ -2,6 +2,7 @@ angular.module('ngChalk', [
   'templates-app'
   'templates-common'
   'ngChalk.home'
+  'ngChalk.ui'
   'ngChalk.ky'
   'ui.state'
   'ui.route'
