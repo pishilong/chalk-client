@@ -1,11 +1,12 @@
 angular.module('ngChalk', [
+  'ui.state'
+  'ui.route'
+  'ui.bootstrap'
   'templates-app'
   'templates-common'
   'ngChalk.home'
   'ngChalk.ui'
   'ngChalk.ky'
-  'ui.state'
-  'ui.route'
 ])
 
 .config( ($stateProvider, $urlRouterProvider, RestangularProvider) ->
