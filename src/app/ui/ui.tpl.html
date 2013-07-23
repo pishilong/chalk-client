@@ -2,15 +2,15 @@
 body {
   padding:10px 10px 100px 10px;
 }
-h1 {
+h1.show {
   text-align:center;
   line-height:50px;
   background:#f8f8f8;
 }
-h2 {
+h2.show {
   border-bottom:1px solid #ccc;
   padding-bottom:5px;
-  margin-top:20px;
+  margin-top:30px;
 }
 .float {
   display:inline-block;
@@ -25,14 +25,30 @@ h2 {
 }
 </style>
 
-<h1>前端结构样式（示意页面）</h1>
-<h2>按钮</h2>
+
+<h1 class="show">前端结构样式（示意页面）</h1>
+
+<h2 class="show">标题</h2>
+<h1>H1标题文字</h1>
+<h2>H2标题文字</h1>
+<h3>H3标题文字</h1>
+<h4>H4标题文字</h1>
+<h5>H5标题文字</h1>
+
+<h2 class="show">按钮</h2>
 <div class="box normal"> <Span class="float">普通按钮样式</Span> <a href="#" class="btn btn-primary  btn-mini">按钮</a> <a href="#" class="btn btn-primary btn-small">按钮</a> <a href="#" class="btn btn-primary btn-medium">按 钮</a> <a href="#" class="btn btn-primary btn-large">按 钮</a> </div>
 <div class="box important"> <Span class="float">强调按钮样式</Span> <a href="#" class="btn btn-warning btn-mini">按钮</a> <a href="#" class="btn btn-warning btn-small">按钮</a> <a href="#" class="btn btn-warning btn-medium">按 钮</a> <a href="#" class="btn btn-warning btn-large">按 钮</a> </div>
 <div class="box second"> <Span class="float">次要按钮样式</Span> <a href="#" class="btn btn-mini">按钮</a> <a href="#" class="btn btn-small">按钮</a> <a href="#" class="btn btn-medium">按 钮</a> <a href="#" class="btn btn-large">按 钮</a> </div>
-<h2>带图标的按钮</h2>
-<div class="box"> <a href="#" class="btn btn-small"><i class="button-ico doback"></i>重做</a> <a href="#" class="btn btn-small"><i class="button-ico save"></i>暂存</a> <a href="#" class="btn btn-small"><i class="button-ico pause"></i>暂停</a> <a href="#" class="btn btn-small"><i class="button-ico play"></i>继续</a> </div>
-<h2>title弹出提示框</h2>
+
+<h2 class="show">带图标的按钮</h2>
+<div class="box"> 
+	<a href="#" class="btn btn-small"><i class="icon-repeat"></i> 重做</a> 
+  <a href="#" class="btn btn-small"><i class="button-ico save"></i> 暂存</a> 
+  <a href="#" class="btn btn-small"><i class="icon-pause"></i> 暂停</a> 
+  <a href="#" class="btn btn-small"><i class="icon-play"></i> 继续</a> 
+</div>
+
+<h2 class="show">title弹出提示框</h2>
 <div class="box">
 <style type="text/css">
 .title-tips{
@@ -108,27 +124,19 @@ h2 {
   margin-right:16px;
 }
 </style>
-  <!--向上的迷你弹出提示框-->
-  <div class="title-tips-mini up-tips-mini" > <i class="arrow"></i>
-    <div class="text">暂停按钮，立即开始暂停 </div>
-  </div>
-
-  <!--向下的迷你弹出提示框-->
-  <div class="title-tips-mini down-tips-mini" > <i class="arrow"></i>
-    <div class="text">暂停按钮，立即开始暂停 </div>
-  </div>
-
-  <!--向左的迷你弹出提示框-->
-  <div class="title-tips-mini left-tips-mini" > <i class="arrow"></i>
-    <div class="text">暂停按钮，立即开始暂停 </div>
-  </div>
-
-  <!--向右的迷你弹出提示框-->
-  <div class="title-tips-mini right-tips-mini" > <i class="arrow"></i>
-    <div class="text">暂停按钮，立即开始暂停 </div>
-  </div>
+	<script type="text/javascript">
+		$(function(){
+				$('.examples').tooltip(options)
+		});
+  </script>
+  <ul class="examples">
+              <li><a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Tooltip on top">Tooltip on top</a></li>
+              <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Tooltip on right">Tooltip on right</a></li>
+              <li><a title="" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Tooltip on bottom">Tooltip on bottom</a></li>
+              <li><a title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Tooltip on left">Tooltip on left</a></li>
+   </ul>
 </div>
-<h2>提示框</h2>
+<h2 class="show">提示框</h2>
 <div class="box" style="background:#bdbdbd; position:relative; height:160px;">
   <style type="text/css">
     .reveal-modal {
@@ -162,7 +170,7 @@ h2 {
   </div>
 </div>
 
-<h2>按钮/面板阴影</h2>
+<h2 class="show">按钮/面板阴影</h2>
 <div class="box clearfix">
 	<style type="text/css">
   .panel {
@@ -179,7 +187,7 @@ h2 {
   <a class="btn btn-medium element-shadow-button" style="background:white; border:1px solid #ccc; color:#535353!important">按钮文字</a>
 </div>
 
-<h2>下拉分裂按钮</h2>
+<h2 class="show">下拉分裂按钮</h2>
 <div class="box">
 		<div class="dropdown-toggle dropdown-toggle-tiny">
     		<a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a>
