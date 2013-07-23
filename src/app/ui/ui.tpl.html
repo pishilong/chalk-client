@@ -25,66 +25,45 @@ h2.show {
 }
 </style>
 
-
 <h1 class="show">前端结构样式（示意页面）</h1>
-
 <h2 class="show">标题</h2>
 <h1>H1标题文字</h1>
-<h2>H2标题文字</h1>
-<h3>H3标题文字</h1>
-<h4>H4标题文字</h1>
-<h5>H5标题文字</h1>
-
+<h2>
+H2标题文字
+</h1>
+<h3>
+H3标题文字
+</h1>
+<h4>
+H4标题文字
+</h1>
+<h5>
+H5标题文字
+</h1>
 <h2 class="show">按钮</h2>
 <div class="box normal"> <Span class="float">普通按钮样式</Span> <a href="#" class="btn btn-primary  btn-mini">按钮</a> <a href="#" class="btn btn-primary btn-small">按钮</a> <a href="#" class="btn btn-primary btn-medium">按 钮</a> <a href="#" class="btn btn-primary btn-large">按 钮</a> </div>
 <div class="box important"> <Span class="float">强调按钮样式</Span> <a href="#" class="btn btn-warning btn-mini">按钮</a> <a href="#" class="btn btn-warning btn-small">按钮</a> <a href="#" class="btn btn-warning btn-medium">按 钮</a> <a href="#" class="btn btn-warning btn-large">按 钮</a> </div>
 <div class="box second"> <Span class="float">次要按钮样式</Span> <a href="#" class="btn btn-mini">按钮</a> <a href="#" class="btn btn-small">按钮</a> <a href="#" class="btn btn-medium">按 钮</a> <a href="#" class="btn btn-large">按 钮</a> </div>
-
 <h2 class="show">带图标的按钮</h2>
-<div class="box"> 
-	<a href="#" class="btn btn-small"><i class="icon-repeat"></i> 重做</a> 
-  <a href="#" class="btn btn-small"><i class="button-ico save"></i> 暂存</a> 
-  <a href="#" class="btn btn-small"><i class="icon-pause"></i> 暂停</a> 
-  <a href="#" class="btn btn-small"><i class="icon-play"></i> 继续</a> 
-</div>
-
+<div class="box"> <a href="#" class="btn btn-small"><i class="icon-repeat"></i> 重做</a> <a href="#" class="btn btn-small"><i class="button-ico save"></i> 暂存</a> <a href="#" class="btn btn-small"><i class="icon-pause"></i> 暂停</a> <a href="#" class="btn btn-small"><i class="icon-play"></i> 继续</a> </div>
 <h2 class="show">title弹出提示框</h2>
 <div class="box">
-<style type="text/css">
+  <style type="text/css">
 .title-tips{
   position:relative;
   margin-right:16px;
 }
 </style>
-  <!--向上的大弹出提示框-->
-  <div class="title-tips up-tips"> <i class="arrow"></i>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-  </div>
-
-  <!--向下的大弹出提示框-->
-  <div class="title-tips down-tips" style="position:relative;margin-right:16px;"> <i class="arrow"></i>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-  </div>
-
-  <!--向左的大弹出提示框-->
-  <div class="title-tips left-tips" style="position:relative; left:0; top:0;margin-right:16px;"> <i class="arrow"></i>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-  </div>
-
-  <!--向右的大弹出提示框-->
-  <div class="title-tips right-tips"> <i class="arrow"></i>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-  </div>
+  <div>
+      <h4>Positional</h4>
+      <button popover-placement="top" popover="On the Top!" class="btn">Top</button>
+      <button popover-placement="left" popover="On the Left!" class="btn">Left</button>
+      <button popover-placement="right" popover="On the Right!" class="btn">Right</button>
+      <button popover-placement="bottom" popover="On the Bottom!" class="btn">Bottom</button>
+      <button popover-placement="mouse" popover="relative to mouse" class="btn">Mouse</button>
+    </div>
 </div>
-<div class="box">
+<div class="box"> 
   <!--向上的大弹出提示框-->
   <div class="title-tips up-tips"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
     <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
@@ -92,7 +71,7 @@ h2.show {
       "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
     <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
   </div>
-
+  
   <!--向下的大弹出提示框-->
   <div class="title-tips down-tips" style="position:relative;margin-right:16px;"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
     <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
@@ -100,7 +79,7 @@ h2.show {
       "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
     <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
   </div>
-
+  
   <!--向左的大弹出提示框-->
   <div class="title-tips left-tips" style="position:relative; left:0; top:0;margin-right:16px;"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
     <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
@@ -108,7 +87,7 @@ h2.show {
       "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
     <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
   </div>
-
+  
   <!--向右的大弹出提示框-->
   <div class="title-tips right-tips"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
     <div class="text"> 暂停测试，保存做题记录，下次继续测试;
@@ -118,23 +97,23 @@ h2.show {
   </div>
 </div>
 <div class="box">
-<style type="text/css">
+  <style type="text/css">
 .title-tips-mini {
   position:relative;
   margin-right:16px;
 }
 </style>
-	<script type="text/javascript">
+  <script type="text/javascript">
 		$(function(){
 				$('.examples').tooltip(options)
 		});
   </script>
   <ul class="examples">
-              <li><a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Tooltip on top">Tooltip on top</a></li>
-              <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Tooltip on right">Tooltip on right</a></li>
-              <li><a title="" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Tooltip on bottom">Tooltip on bottom</a></li>
-              <li><a title="" data-placement="left" data-toggle="tooltip" href="#" data-original-title="Tooltip on left">Tooltip on left</a></li>
-   </ul>
+    <li><a title="" tooltip-placement="top" tooltip="顶部mini的tips">顶部mini的tips</a></li>
+    <li><a title="" tooltip-placement="right" tooltip="右侧mini的tips">右侧mini的tips</a></li>
+    <li><a title="" tooltip-placement="bottom" tooltip="底部mini的tips">底部mini的tips</a></li>
+    <li><a title="" tooltip-placement="left" tooltip="左侧mini的tips">左侧mini的tips</a></li>
+  </ul>
 </div>
 <h2 class="show">提示框</h2>
 <div class="box" style="background:#bdbdbd; position:relative; height:160px;">
@@ -169,10 +148,9 @@ h2.show {
     <div class="queren"><a class="btn btn-medium btn-primary">确定</a></div>
   </div>
 </div>
-
 <h2 class="show">按钮/面板阴影</h2>
 <div class="box clearfix">
-	<style type="text/css">
+  <style type="text/css">
   .panel {
     width:300px;
     height:200px;
@@ -180,56 +158,23 @@ h2.show {
     margin-right:10px;
   }
   </style>
-	<div class="panel element-shadow">
-  </div>
-	<div class="panel element-shadow-all">
-  </div>
-  <a class="btn btn-medium element-shadow-button" style="background:white; border:1px solid #ccc; color:#535353!important">按钮文字</a>
-</div>
-
+  <div class="panel element-shadow"> </div>
+  <div class="panel element-shadow-all"> </div>
+  <a class="btn btn-medium element-shadow-button" style="background:white; border:1px solid #ccc; color:#535353!important">按钮文字</a> </div>
 <h2 class="show">下拉分裂按钮</h2>
 <div class="box">
-		<div class="dropdown-toggle dropdown-toggle-tiny">
-    		<a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a>
-        <a class="word-option-arrow"><i class="arrow"></i></a>
-        <div class="menu-shadow options">
-          <a target="_blank" href="/recite_words/recite_a_group">背一组</a>
-        <a target="_blank" href="/recite_words/recite_all_words">背全部</a>
-        </div>
-    </div>
-
-    <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-tiny">
-    		<a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a>
-        <a class="word-option-arrow"><i class="arrow"></i></a>
-        <div class="menu-shadow options">
-          <a target="_blank" href="/recite_words/recite_a_group">背一组</a>
-        <a target="_blank" href="/recite_words/recite_all_words">背全部</a>
-        </div>
-    </div>
-
-    <div class="dropdown-toggle dropdown-toggle-tiny">
-    		<a target="_blank" class="word-option word-option-none" href="/recite_words/arrange_words">整理词库</a>
-    </div>
-
-    <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-tiny">
-    		<a target="_blank" class="word-option word-option-none" href="/recite_words/arrange_words">整理词库</a>
-    </div>
-
-    <div class="dropdown-toggle dropdown-toggle-small">
-    		<a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a>
-        <a class="word-option-arrow"><i class="arrow"></i></a>
-        <div class="menu-shadow options">
-          <a target="_blank" href="/recite_words/recite_a_group">背一组</a>
-        <a target="_blank" href="/recite_words/recite_all_words">背全部</a>
-        </div>
-    </div>
-
-    <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-small">
-    		<a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a>
-        <a class="word-option-arrow"><i class="arrow"></i></a>
-        <div class="menu-shadow options">
-          <a target="_blank" href="/recite_words/recite_a_group">背一组</a>
-        <a target="_blank" href="/recite_words/recite_all_words">背全部</a>
-        </div>
-    </div>
+  <div class="dropdown-toggle dropdown-toggle-tiny"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
+    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
+  </div>
+  <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-tiny"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
+    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
+  </div>
+  <div class="dropdown-toggle dropdown-toggle-tiny"> <a target="_blank" class="word-option word-option-none" href="/recite_words/arrange_words">整理词库</a> </div>
+  <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-tiny"> <a target="_blank" class="word-option word-option-none" href="/recite_words/arrange_words">整理词库</a> </div>
+  <div class="dropdown-toggle dropdown-toggle-small"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
+    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
+  </div>
+  <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-small"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
+    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
+  </div>
 </div>
