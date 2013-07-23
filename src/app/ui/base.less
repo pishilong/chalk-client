@@ -1,0 +1,38 @@
+/*按钮样式*/
+@gray:#d8d8d8;
+@blue:#0099cb;
+@btn-orange:#fd9900;
+.btn {
+  background:@gray url(img/btn-gray.gif) repeat-x;
+  &:hover {
+	  background:@gray url(img/btn-hover_14.gif) repeat-x;
+  }
+}
+.btn-primary {
+  background:@blue url(img/btn-blue.gif) repeat-x;
+
+  color:white;
+  &:hover {
+	  background:@blue url(img/btn-hover_13.gif) repeat-x;
+  }
+}
+.btn-warning {
+  background:@btn-orange url(img/btn-red.gif) repeat-x;
+  color:white;
+  &:hover {
+	  background:@btn-orange url(img/btn-hover_12.gif) repeat-x;
+  }
+}
+
+/*按钮尺寸*/
+@font-small:12px;
+.btn-mini {
+  font-size:@font-small;
+}
+.btn-small {
+  font-size:@font-small;
+}
+.btn-medium {
+  font-size:@font-small;
+}
+
