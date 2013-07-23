@@ -8,7 +8,6 @@ angular.module('ngChalk.ui', [
     url: '/ui'
     views: {
       "main": {
-        controller: 'UiCtrl'
         templateUrl: 'ui/ui.tpl.html'
       }
     }

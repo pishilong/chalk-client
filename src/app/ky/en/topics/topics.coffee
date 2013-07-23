@@ -1,7 +1,6 @@
 angular.module( 'ngChalk.ky.en.topics', [
   'ui.state'
   'placeholders'
-  'ui.bootstrap'
   'titleService'
   'ycQuestion'
   'ngChalk.ky.en.base'
