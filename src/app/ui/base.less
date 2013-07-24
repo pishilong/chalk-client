@@ -8,9 +8,8 @@
 	  background:@gray url(img/btn-hover_14.gif) repeat-x;
   }
 }
-.btn-primary {
+.btn-primary{
   background:@blue url(img/btn-blue.gif) repeat-x;
-
   color:white;
   &:hover {
 	  background:@blue url(img/btn-hover_13.gif) repeat-x;
@@ -26,14 +25,35 @@
 
 /*按钮尺寸*/
 @font-small:12px;
+@height-mini:15px;
 .btn-mini {
   font-size:@font-small;
+  line-height:@height-mini;
+  .caret {
+    margin-top:6px;
+  }
 }
 .btn-small {
   font-size:@font-small;
 }
 .btn-medium {
   font-size:@font-small;
+}
+
+/*下拉按钮样式*/
+.btn-group.open .btn-primary.dropdown-toggle {
+  background:@blue url(img/btn-hover_13.gif) repeat-x;
+}
+.btn-group.open .btn-warning.dropdown-toggle {
+  background:@btn-orange url(img/btn-hover_12.gif) repeat-x;
+}
+
+/*下拉按钮尺寸*/
+.btn-group .btn-mini{
+  padding:0 2px;
+}
+.btn-group .btn-mini.dropdown-toggle {
+  padding:0 2px;
 }
 
 /*标题字大小*/
@@ -57,3 +77,33 @@ h6 {
   font-size:@h1-size - 10;
 }
 
+/*元素阴影*/
+.panel {
+  border: 1px solid #E2E2E2;
+  border-radius: 8px 8px 8px 8px;
+}
+.element-shadow {
+  box-shadow:5px 5px 0px #f0f0f0;
+}
+.element-shadow-all {
+  box-shadow:0 0 3px #B9BAB9;
+  border:1px solid #D2D2D2;
+}
+.element-shadow-button {
+  box-shadow:3px 3px 0px #E8E8E8;
+}
+.element-shadow-button:hover {
+  box-shadow:none;
+}
+
+/*模态对话框*/
+.modal {
+  min-hegiht:60px;
+  min-width:240px;
+  .modal-footer {
+    padding:5px;
+  }
+ .modal-header {
+   display:none;
+  }
+}

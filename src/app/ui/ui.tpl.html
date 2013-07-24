@@ -56,45 +56,12 @@ H5标题文字
 </style>
   <div>
       <h4>Positional</h4>
-      <button popover-placement="top" popover="On the Top!" class="btn">Top</button>
-      <button popover-placement="left" popover="On the Left!" class="btn">Left</button>
-      <button popover-placement="right" popover="On the Right!" class="btn">Right</button>
-      <button popover-placement="bottom" popover="On the Bottom!" class="btn">Bottom</button>
-      <button popover-placement="mouse" popover="relative to mouse" class="btn">Mouse</button>
+      <button popover-placement="top" popover="On the Top!" class="btn">顶部弹窗</button>
+      <button popover-placement="left" popover="On the Left!" class="btn">左侧弹窗</button>
+      <button popover-placement="right" popover="On the Right!" class="btn">右侧弹窗</button>
+      <button popover-placement="bottom" popover="On the Bottom!" class="btn">底部弹窗</button>
+      <button popover-placement="mouse" popover="relative to mouse" class="btn">跟随鼠标</button>
     </div>
-</div>
-<div class="box"> 
-  <!--向上的大弹出提示框-->
-  <div class="title-tips up-tips"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-    <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
-  </div>
-  
-  <!--向下的大弹出提示框-->
-  <div class="title-tips down-tips" style="position:relative;margin-right:16px;"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-    <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
-  </div>
-  
-  <!--向左的大弹出提示框-->
-  <div class="title-tips left-tips" style="position:relative; left:0; top:0;margin-right:16px;"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;<br>
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-    <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
-  </div>
-  
-  <!--向右的大弹出提示框-->
-  <div class="title-tips right-tips"> <i class="arrow"></i><a href="javascript:" class="close">X</a>
-    <div class="text"> 暂停测试，保存做题记录，下次继续测试;
-      暂停后，计时停止，页面不能操作，以MASK遮住试题区；<br>
-      "暂停"变为"继续"，继续后计时继续，页面可操作。 </div>
-    <div class="notitle"><a href="#" class="bluelink">不再提示</a></div>
-  </div>
 </div>
 <div class="box">
   <style type="text/css">
@@ -108,45 +75,54 @@ H5标题文字
 				$('.examples').tooltip(options)
 		});
   </script>
-  <ul class="examples">
-    <li><a title="" tooltip-placement="top" tooltip="顶部mini的tips">顶部mini的tips</a></li>
+  <ul class="examples inline">
+    <li class=""><a title="" tooltip-placement="top" tooltip="顶部mini的tips">顶部mini的tips</a></li>
     <li><a title="" tooltip-placement="right" tooltip="右侧mini的tips">右侧mini的tips</a></li>
     <li><a title="" tooltip-placement="bottom" tooltip="底部mini的tips">底部mini的tips</a></li>
     <li><a title="" tooltip-placement="left" tooltip="左侧mini的tips">左侧mini的tips</a></li>
   </ul>
 </div>
 <h2 class="show">提示框</h2>
-<div class="box" style="background:#bdbdbd; position:relative; height:160px;">
-  <style type="text/css">
-    .reveal-modal {
-      display: block;
-      top:10px!important;
-      visibility:visible;
-      right:auto;
-      margin:0;
-      position:absolute;
-    }
-    </style>
-  <!--用户信息提示框-->
-  <div style="left:10px;" class="reveal-modal popup-240 diam reveal-modal-99">
-    <div class="content"> <img src="img/dia-information-1.png"> <span>考试时间为125分钟</span> </div>
-    <div class="queren"><a class="btn btn-medium btn-primary">现在开始</a></div>
+<div class="box" >
+  <div class="row-fluid">
+    <div class="span6">
+      <script type="text/ng-template" id="ui/dialog1.tpl">
+        <div class="modal-header">
+          <h3>This is the title</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter a value to pass to <code>close</code> as the result:
+            <input ng-model="result" />
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button ng-click="close(result)" class="btn btn-primary" >关闭</button>
+        </div>
+      </script>
+      <p>Dialog</p>
+      <p><button class="btn btn-primary" ng-click="openDialog()">打开弹出框</button></p>
+
+      <script type="text/ng-template" id="ui/dialog2.tpl">
+        <div class="modal-header">
+          <h3>Second Dialog</h3>
+        </div>
+				<a class="close" href="javascript:" ng-click="close()">×</a>
+        <div class="modal-body">
+          <h4>Hello</h4>
+        </div>
+        <div class="modal-footer">
+          <button ng-click="close()" class="btn btn-primary" >关闭</button>
+        </div>
+      </script>
+      <p>Dialog2</p>
+      <p><button class="btn btn-primary" ng-click="openDialog2()">打开弹出框</button></p>
+
+      <p>Alternatively open a simple message box:</p>
+      <p><button class="btn btn-primary" ng-click="openMessageBox()">打开弹出框</button></p>
+    </div>
   </div>
-  <!--错误提示框-->
-  <div style="left:260px;" class="reveal-modal popup-240 diam reveal-modal-99">
-    <div class="content"> <img src="img/dia-red-1.png"> <span>系统错误</span> </div>
-    <div class="queren"><a class="btn btn-medium btn-primary">确定</a></div>
-  </div>
-  <!--用户选择提示框-->
-  <div style="left:520px;" class="reveal-modal popup-240 diam reveal-modal-99">
-    <div class="content"> <img src="img/dia-blue-1.png"> <span>你确定要取消订单吗？</span> </div>
-    <div class="queren"><a class="btn btn-medium btn-primary">确定</a><a href="#" class="btn btn-medium">取消</a></div>
-  </div>
-  <!--错误提示框-->
-  <div style="left:780px;" class="reveal-modal popup-240 diam reveal-modal-99">
-    <div class="content"> <img src="img/dia-yellow-1.png"> <span>你还未选择题目答案</span> </div>
-    <div class="queren"><a class="btn btn-medium btn-primary">确定</a></div>
-  </div>
+
+    
 </div>
 <h2 class="show">按钮/面板阴影</h2>
 <div class="box clearfix">
@@ -163,18 +139,71 @@ H5标题文字
   <a class="btn btn-medium element-shadow-button" style="background:white; border:1px solid #ccc; color:#535353!important">按钮文字</a> </div>
 <h2 class="show">下拉分裂按钮</h2>
 <div class="box">
-  <div class="dropdown-toggle dropdown-toggle-tiny"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
-    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
-  </div>
-  <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-tiny"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
-    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
-  </div>
-  <div class="dropdown-toggle dropdown-toggle-tiny"> <a target="_blank" class="word-option word-option-none" href="/recite_words/arrange_words">整理词库</a> </div>
-  <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-tiny"> <a target="_blank" class="word-option word-option-none" href="/recite_words/arrange_words">整理词库</a> </div>
-  <div class="dropdown-toggle dropdown-toggle-small"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
-    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
-  </div>
-  <div class="dropdown-toggle dropdown-toggle-important dropdown-toggle-small"> <a target="_blank" class="arrange_words word-option" href="/recite_words/arrange_words">整理词库</a> <a class="word-option-arrow"><i class="arrow"></i></a>
-    <div class="menu-shadow options"> <a target="_blank" href="/recite_words/recite_a_group">背一组</a> <a target="_blank" href="/recite_words/recite_all_words">背全部</a> </div>
-  </div>
+
+	  <div class="btn-group">
+      <button class="btn btn-mini btn-primary">整理词库</button>
+      <button class="btn dropdown-toggle btn-mini btn-primary" data-toggle="dropdown">
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">背一组</a></li>
+        <li><a href="#">背全部</a></li>
+      </ul>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn btn-mini btn-warning">整理词库</button>
+      <button class="btn dropdown-toggle btn-mini btn-warning" data-toggle="dropdown">
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">背一组</a></li>
+        <li><a href="#">背全部</a></li>
+      </ul>
+    </div>
+
+	  <div class="btn-group">
+      <button class="btn btn-small btn-primary">整理词库</button>
+      <button class="btn dropdown-toggle btn-small btn-primary" data-toggle="dropdown">
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">背一组</a></li>
+        <li><a href="#">背全部</a></li>
+      </ul>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn btn-small btn-warning">整理词库</button>
+      <button class="btn dropdown-toggle btn-small btn-warning" data-toggle="dropdown">
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">背一组</a></li>
+        <li><a href="#">背全部</a></li>
+      </ul>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn btn-medium btn-primary">整理词库</button>
+      <button class="btn dropdown-toggle btn-medium btn-primary" data-toggle="dropdown">
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">背一组</a></li>
+        <li><a href="#">背全部</a></li>
+      </ul>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn btn-medium btn-warning">整理词库</button>
+      <button class="btn dropdown-toggle btn-medium btn-warning" data-toggle="dropdown">
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">背一组</a></li>
+        <li><a href="#">背全部</a></li>
+      </ul>
+    </div>
+    
 </div>
