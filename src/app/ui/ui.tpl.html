@@ -55,13 +55,13 @@ H5标题文字
 }
 </style>
   <div>
-      <h4>Positional</h4>
-      <button popover-placement="top" popover="On the Top!" class="btn">顶部弹窗</button>
-      <button popover-placement="left" popover="On the Left!" class="btn">左侧弹窗</button>
-      <button popover-placement="right" popover="On the Right!" class="btn">右侧弹窗</button>
-      <button popover-placement="bottom" popover="On the Bottom!" class="btn">底部弹窗</button>
-      <button popover-placement="mouse" popover="relative to mouse" class="btn">跟随鼠标</button>
-    </div>
+    <h4>Positional</h4>
+    <button popover-placement="top" popover="On the Top!" class="btn">顶部弹窗</button>
+    <button popover-placement="left" popover="On the Left!" class="btn">左侧弹窗</button>
+    <button popover-placement="right" popover="On the Right!" class="btn">右侧弹窗</button>
+    <button popover-placement="bottom" popover="On the Bottom!" class="btn">底部弹窗</button>
+    <button popover-placement="mouse" popover="relative to mouse" class="btn">跟随鼠标</button>
+  </div>
 </div>
 <div class="box">
   <style type="text/css">
@@ -85,7 +85,7 @@ H5标题文字
 <h2 class="show">提示框</h2>
 <div class="box" >
   <div class="row-fluid">
-    <div class="span6">
+    <div class="span6"> 
       <script type="text/ng-template" id="ui/dialog1.tpl">
         <div class="modal-header">
           <h3>This is the title</h3>
@@ -100,8 +100,9 @@ H5标题文字
         </div>
       </script>
       <p>Dialog</p>
-      <p><button class="btn btn-primary" ng-click="openDialog()">打开弹出框</button></p>
-
+      <p>
+        <button class="btn btn-primary" ng-click="openDialog()">打开弹出框</button>
+      </p>
       <script type="text/ng-template" id="ui/dialog2.tpl">
         <div class="modal-header">
           <h3>Second Dialog</h3>
@@ -115,14 +116,15 @@ H5标题文字
         </div>
       </script>
       <p>Dialog2</p>
-      <p><button class="btn btn-primary" ng-click="openDialog2()">打开弹出框</button></p>
-
+      <p>
+        <button class="btn btn-primary" ng-click="openDialog2()">打开弹出框</button>
+      </p>
       <p>Alternatively open a simple message box:</p>
-      <p><button class="btn btn-primary" ng-click="openMessageBox()">打开弹出框</button></p>
+      <p>
+        <button class="btn btn-primary" ng-click="openMessageBox()">打开弹出框</button>
+      </p>
     </div>
   </div>
-
-    
 </div>
 <h2 class="show">按钮/面板阴影</h2>
 <div class="box clearfix">
@@ -135,75 +137,130 @@ H5标题文字
   }
   </style>
   <div class="panel element-shadow"> </div>
+  
   <div class="panel element-shadow-all"> </div>
-  <a class="btn btn-medium element-shadow-button" style="background:white; border:1px solid #ccc; color:#535353!important">按钮文字</a> </div>
+  
+  <a class="btn btn-medium element-shadow-button" style="background:white; border:1px solid #ccc; color:#535353!important">按钮文字</a> 
+  
+  <div class="panel element-shadow">
+    <div class="header">
+      <h1><i class="icon-file"></i> 对话框标题</h1>
+    </div>
+  </div>
+  
+</div>
+  
 <h2 class="show">下拉分裂按钮</h2>
 <div class="box">
+  <div class="btn-group">
+    <button class="btn btn-mini btn-primary">整理词库</button>
+    <button class="btn dropdown-toggle btn-mini btn-primary" data-toggle="dropdown"> <span class="caret"></span> </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">背一组</a></li>
+      <li><a href="#">背全部</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-mini btn-warning">整理词库</button>
+    <button class="btn dropdown-toggle btn-mini btn-warning" data-toggle="dropdown"> <span class="caret"></span> </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">背一组</a></li>
+      <li><a href="#">背全部</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-small btn-primary">整理词库</button>
+    <button class="btn dropdown-toggle btn-small btn-primary" data-toggle="dropdown"> <span class="caret"></span> </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">背一组</a></li>
+      <li><a href="#">背全部</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-small btn-warning">整理词库</button>
+    <button class="btn dropdown-toggle btn-small btn-warning" data-toggle="dropdown"> <span class="caret"></span> </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">背一组</a></li>
+      <li><a href="#">背全部</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-medium btn-primary">整理词库</button>
+    <button class="btn dropdown-toggle btn-medium btn-primary" data-toggle="dropdown"> <span class="caret"></span> </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">背一组</a></li>
+      <li><a href="#">背全部</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-medium btn-warning">整理词库</button>
+    <button class="btn dropdown-toggle btn-medium btn-warning" data-toggle="dropdown"> <span class="caret"></span> </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">背一组</a></li>
+      <li><a href="#">背全部</a></li>
+    </ul>
+  </div>
 
-	  <div class="btn-group">
-      <button class="btn btn-mini btn-primary">整理词库</button>
-      <button class="btn dropdown-toggle btn-mini btn-primary" data-toggle="dropdown">
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">背一组</a></li>
-        <li><a href="#">背全部</a></li>
-      </ul>
-    </div>
-    
-    <div class="btn-group">
-      <button class="btn btn-mini btn-warning">整理词库</button>
-      <button class="btn dropdown-toggle btn-mini btn-warning" data-toggle="dropdown">
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">背一组</a></li>
-        <li><a href="#">背全部</a></li>
-      </ul>
-    </div>
-
-	  <div class="btn-group">
-      <button class="btn btn-small btn-primary">整理词库</button>
-      <button class="btn dropdown-toggle btn-small btn-primary" data-toggle="dropdown">
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">背一组</a></li>
-        <li><a href="#">背全部</a></li>
-      </ul>
-    </div>
-    
-    <div class="btn-group">
-      <button class="btn btn-small btn-warning">整理词库</button>
-      <button class="btn dropdown-toggle btn-small btn-warning" data-toggle="dropdown">
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">背一组</a></li>
-        <li><a href="#">背全部</a></li>
-      </ul>
-    </div>
-    
-    <div class="btn-group">
-      <button class="btn btn-medium btn-primary">整理词库</button>
-      <button class="btn dropdown-toggle btn-medium btn-primary" data-toggle="dropdown">
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">背一组</a></li>
-        <li><a href="#">背全部</a></li>
-      </ul>
-    </div>
-    
-    <div class="btn-group">
-      <button class="btn btn-medium btn-warning">整理词库</button>
-      <button class="btn dropdown-toggle btn-medium btn-warning" data-toggle="dropdown">
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">背一组</a></li>
-        <li><a href="#">背全部</a></li>
-      </ul>
-    </div>
-    
+</div>
+<h2 class="show">表格</h2>
+<div class="box">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th style="width:10%">序号</th>
+        <th style="width:15%">测试类别</th>
+        <th style="width:20%">开始时间</th>
+        <th style="width:15%">测试用时</th>
+        <th style="width:10%">进度</th>
+        <th style="width:10%">得分</th>
+        <th style="width:20%">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<tr class="even" id="record_389">
+        <td style="width:10%" class="_index">1</td>
+        <td style="width:15%">新测试</td>
+        <td style="width:20%">2013.7.24 16:56</td>
+        <td style="width:15%">00:00</td>
+        <td style="width:10%">0/91</td>
+        <td style="width:10%">--</td>
+        <td style="width:20%">
+            <a data-url="/quizzes/do?continuing=true&amp;quiz_id=944&amp;quiz_record_id=389" class="_open_quiz bluelink" href="javascript:">继续测试</a>
+        </td>
+       </tr>
+       <tr class="odd" id="record_389">
+        <td style="width:10%" class="_index">1</td>
+        <td style="width:15%">新测试</td>
+        <td style="width:20%">2013.7.24 16:56</td>
+        <td style="width:15%">00:00</td>
+        <td style="width:10%">0/91</td>
+        <td style="width:10%">--</td>
+        <td style="width:20%">
+            <a data-url="/quizzes/do?continuing=true&amp;quiz_id=944&amp;quiz_record_id=389" class="_open_quiz bluelink" href="javascript:">继续测试</a>
+        </td>
+       </tr>
+       <tr class="even" id="record_389">
+        <td style="width:10%" class="_index">1</td>
+        <td style="width:15%">新测试</td>
+        <td style="width:20%">2013.7.24 16:56</td>
+        <td style="width:15%">00:00</td>
+        <td style="width:10%">0/91</td>
+        <td style="width:10%">--</td>
+        <td style="width:20%">
+            <a data-url="/quizzes/do?continuing=true&amp;quiz_id=944&amp;quiz_record_id=389" class="_open_quiz bluelink" href="javascript:">继续测试</a>
+        </td>
+       </tr>
+       <tr class="odd" id="record_389">
+        <td style="width:10%" class="_index">1</td>
+        <td style="width:15%">新测试</td>
+        <td style="width:20%">2013.7.24 16:56</td>
+        <td style="width:15%">00:00</td>
+        <td style="width:10%">0/91</td>
+        <td style="width:10%">--</td>
+        <td style="width:20%">
+            <a data-url="/quizzes/do?continuing=true&amp;quiz_id=944&amp;quiz_record_id=389" class="_open_quiz bluelink" href="javascript:">继续测试</a>
+        </td>
+       </tr>
+    </tbody>
+  </table>
 </div>

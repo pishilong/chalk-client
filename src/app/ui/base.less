@@ -77,10 +77,27 @@ h6 {
   font-size:@h1-size - 10;
 }
 
-/*元素阴影*/
+/*面板元素样式*/
+@panel-bg-gray:#f7f7f7;
+@panel-border-gray:#d2d2d2;
+@panel-radius:8px;
 .panel {
-  border: 1px solid #E2E2E2;
-  border-radius: 8px 8px 8px 8px;
+  border: 1px solid @panel-border-gray;
+  border-radius:@panel-radius;
+  .header{
+    width:100%;
+    background:@panel-bg-gray;
+    border-bottom:1px solid @panel-border-gray;
+    border-radius:@panel-radius @panel-radius  0 0;
+    h1 {
+      font-size:16px;
+      font-weight:normal;
+      font-family:"微软雅黑","宋体";
+      line-height:40px;
+      margin:0;
+      text-align:center;
+    }
+  }
 }
 .element-shadow {
   box-shadow:5px 5px 0px #f0f0f0;
