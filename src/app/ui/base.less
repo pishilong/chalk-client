@@ -41,19 +41,23 @@
 }
 
 /*下拉按钮样式*/
-.btn-group.open .btn-primary.dropdown-toggle {
-  background:@blue url(img/btn-hover_13.gif) repeat-x;
-}
-.btn-group.open .btn-warning.dropdown-toggle {
+.btn-group.open {
+  .btn-primary.dropdown-toggle {
+  	background:@blue url(img/btn-hover_13.gif) repeat-x;
+  }
+	.btn-warning.dropdown-toggle {
   background:@btn-orange url(img/btn-hover_12.gif) repeat-x;
+  }
 }
 
 /*下拉按钮尺寸*/
-.btn-group .btn-mini{
+.btn-group {
+  .btn-mini{
   padding:0 2px;
-}
-.btn-group .btn-mini.dropdown-toggle {
+  }
+  .btn-mini.dropdown-toggle {
   padding:0 2px;
+	}
 }
 
 /*标题字大小*/
@@ -109,7 +113,7 @@ h6 {
 .element-shadow-button {
   box-shadow:3px 3px 0px #E8E8E8;
 }
-.element-shadow-button:hover {
+.element-shadow-button:active {
   box-shadow:none;
 }
 
@@ -117,10 +121,30 @@ h6 {
 .modal {
   min-hegiht:60px;
   min-width:240px;
+  max-width:340px;
+  margin-left:-170px;
   .modal-footer {
     padding:5px;
   }
  .modal-header {
    display:none;
   }
+}
+
+/*导图按钮*/
+.mind-button {
+  display:block;
+  cursor:pointer;
+  .panel;
+  &:hover {
+    background:#f7f7f7;
+    text-decoration:none;
+  }
+}
+
+.mind-button-mini {
+}
+.mind-button-large {
+  width:170px;
+  padding:5px 10px;
 }

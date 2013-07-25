@@ -46,6 +46,11 @@ H5标题文字
 <div class="box second"> <Span class="float">次要按钮样式</Span> <a href="#" class="btn btn-mini">按钮</a> <a href="#" class="btn btn-small">按钮</a> <a href="#" class="btn btn-medium">按 钮</a> <a href="#" class="btn btn-large">按 钮</a> </div>
 <h2 class="show">带图标的按钮</h2>
 <div class="box"> <a href="#" class="btn btn-small"><i class="icon-repeat"></i> 重做</a> <a href="#" class="btn btn-small"><i class="button-ico save"></i> 暂存</a> <a href="#" class="btn btn-small"><i class="icon-pause"></i> 暂停</a> <a href="#" class="btn btn-small"><i class="icon-play"></i> 继续</a> </div>
+<h2 class="show">导图按钮</h2>
+<div class="box">
+<a class="mind-button element-shadow-button mind-button-large">2012年6月CET4</a>
+<a class="mind-button element-shadow-button mind-button-large">2012年6月CET4</a>
+</div>
 <h2 class="show">title弹出提示框</h2>
 <div class="box">
   <style type="text/css">
@@ -109,7 +114,7 @@ H5标题文字
         </div>
 				<a class="close" href="javascript:" ng-click="close()">×</a>
         <div class="modal-body">
-          <h4>Hello</h4>
+          <p><img src="assets/img/dia-green.png">　操作已成功</p>
         </div>
         <div class="modal-footer">
           <button ng-click="close()" class="btn btn-primary" >关闭</button>
@@ -127,9 +132,9 @@ H5标题文字
   </div>
 </div>
 <h2 class="show">按钮/面板阴影</h2>
-<div class="box clearfix">
+<div class="box clearfix panel-show">
   <style type="text/css">
-  .panel {
+  .panel-show .panel {
     width:300px;
     height:200px;
     float:left;
@@ -263,4 +268,59 @@ H5标题文字
        </tr>
     </tbody>
   </table>
+</div>
+<h2 class="show">手风琴效果</h2>
+<div class="box">
+  <div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Collapsible Group Item #1
+        </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="accordion-inner">
+          Anim pariatur cliche...
+          </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Collapsible Group Item #2
+        </a>
+      </div>
+      <div id="collapseTwo" class="accordion-body collapse">
+        <div class="accordion-inner">
+        Anim pariatur cliche...
+        </div>
+      </div>
+    </div>
+ 	</div>
+  <script type="text/javascript">
+  $(function(){
+		$(".collapse").collapse()
+	});
+	</script>
+  
+  <div ng-controller="AccordionDemoCtrl">
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="Static Header">
+      This content is straight in the template.
+    </accordion-group>
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Dynamic Body Content">
+      <p>The body of the accordion group grows to fit the contents</p>
+        <button class="btn btn-small" ng-click="addItem()">Add Item</button>
+        <div ng-repeat="item in items">{{item}}</div>
+    </accordion-group>
+  </accordion>
+</div>
 </div>
