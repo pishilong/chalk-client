@@ -56,7 +56,7 @@
   padding:0 2px;
   }
   .btn-mini.dropdown-toggle {
-  padding:0 2px;
+    .btn-mini;
 	}
 }
 
@@ -84,9 +84,12 @@ h6 {
 /*面板元素样式*/
 @panel-bg-gray:#f7f7f7;
 @panel-border-gray:#d2d2d2;
+.panel-border {
+  border:1px solid @panel-border-gray;
+}
 @panel-radius:8px;
 .panel {
-  border: 1px solid @panel-border-gray;
+  .panel-border;
   border-radius:@panel-radius;
   .header{
     width:100%;
@@ -104,11 +107,11 @@ h6 {
   }
 }
 .element-shadow {
-  box-shadow:5px 5px 0px #f0f0f0;
+  box-shadow:5px 5px 0px #f0f0f0; 
 }
 .element-shadow-all {
   box-shadow:0 0 3px #B9BAB9;
-  border:1px solid #D2D2D2;
+  .panel-border;
 }
 .element-shadow-button {
   box-shadow:3px 3px 0px #E8E8E8;
