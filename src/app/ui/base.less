@@ -151,3 +151,30 @@ h6 {
   width:170px;
   padding:5px 10px;
 }
+
+/*less*/
+.size (@size:20px){
+  font-size:@size;
+	border:@size solid @gray;
+}
+.test {
+  .size;
+}
+.border-attr ( @size:5px,@style:solid,@color:#ccc){
+  border:@arguments;
+}
+.test {
+  .border-attr;
+}
+.test2 (dark,@color) {
+  color:darken(@color,10%);
+}
+.test2(light,@color){
+  color:lighten(@color,40%);
+}
+.test2(@_,@color){
+  background:#ccc;
+}
+.test-font {
+  .test2(dark,#ccc)
+}
